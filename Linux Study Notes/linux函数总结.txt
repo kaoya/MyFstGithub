@@ -1,0 +1,15 @@
+1. strftime
+
+时间格式化函数，如：
+char *gettime(char *strtime, size_t max)
+{
+	struct tm *tm_ptr;
+	time_t the_time;
+
+	time(&the_time);
+	tm_ptr = localtime(&the_time);
+
+	strftime(strtime, max, "%G-%m-%d %H:%M:%S", tm_ptr);
+
+	return strtime;
+}
