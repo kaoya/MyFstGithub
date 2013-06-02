@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+mismatch=0
+while read old new ref; do
+  author=`git show --pretty=format:%an $new | head -1`
+  email=`git show --pretty=format:%ae $new | head -1`
+  
+#  echo "     email = \"$email\", author = \"$author\", GL_USER = \"$GL_USER\""
+  
+  if test "$GL_USER" != "$author"; then
+    echo
+    echo "ERROR: Invalid user name on object $new:"
+    echo "       Expecting \"$GL_USER\", got \"$author\""
+    mismatch=1
+  fi
+  
+  if test "$GL_USER@yaxon.com" != "$email"; then
+    echo
+    echo "ERROR: Invalid user email on object $new:"
+    echo "       Expecting \"$GL_USER@yaxon.com\", got \"$email\""
+    mismatch=1
+  fi
+done
+
+if test $mismatch -eq 1; then
+  echo
+  echo "Please run the following commands and try again:"
+  echo "> git config user.name \"$GL_USER\""
+  echo "> git config user.email \"$GL_USER@yaxon.com\""
+  echo "> git commit --amend --author=\"$GL_USER <$GL_USER@yaxon.com>\""
+  echo
+  exit 1;
+fi
+
+exit 0;
+
