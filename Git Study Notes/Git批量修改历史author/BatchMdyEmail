@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+git filter-branch -f --commit-filter '
+if [ "$GIT_AUTHOR_NAME" = "kaoya" ];
+then
+    GIT_AUTHOR_NAME="xuzhenping";
+    GIT_AUTHOR_EMAIL="xuzhenping@yaxon.com";
+    git commit-tree "$@";
+else
+    git commit-tree "$@";
+fi' M4..M6
