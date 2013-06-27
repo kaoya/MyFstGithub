@@ -2,6 +2,21 @@
 #
 mismatch=0
 while read old new ref; do
+  if test "0000000000000000000000000000000000000000" = "$new"; then
+  echo
+  echo "new ref = $new"
+  exit 0;
+  fi
+
+  objecttype=`git cat-file -t $new` 
+  echo "objecttype=$objecttype"
+
+  if test "tag" = "$objecttype"; then
+  echo
+  echo "push tag: $new"
+  exit 0; 
+  fi 
+
   author=`git show --pretty=format:%an $new | head -1`
   email=`git show --pretty=format:%ae $new | head -1`
   
