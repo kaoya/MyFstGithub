@@ -8,4 +8,4 @@ then
     git commit-tree "$@";
 else
     git commit-tree "$@";
-fi' M4..M6
+fi' master~5..master
