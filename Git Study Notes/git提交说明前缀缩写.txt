@@ -1,0 +1,60 @@
+【版本1】
+
+参考：https://docs.scipy.org/doc/numpy/dev/gitwash/development_workflow.html
+
+Writing the commit message
+Commit messages should be clear and follow a few basic rules. Example:
+
+ENH: add functionality X to numpy.<submodule>.
+
+The first line of the commit message starts with a capitalized acronym
+(options listed below) indicating what type of commit this is.  Then a blank
+line, then more text if needed.  Lines shouldn't be longer than 72
+characters.  If the commit is related to a ticket, indicate that with
+"See #3456", "See ticket 3456", "Closes #3456" or similar.
+Describing the motivation for a change, the nature of a bug for bug fixes or some details on what an enhancement does are also good to include in a commit message. Messages should be understandable without looking at the code changes. A commit message like MAINT: fixed another one is an example of what not to do; the reader has to go look for context elsewhere.
+
+Standard acronyms to start the commit message with are:
+
+API: an (incompatible) API change
+BENCH: changes to the benchmark suite
+BLD: change related to building numpy
+BUG: bug fix
+DEP: deprecate something, or remove a deprecated object
+DEV: development tool or utility
+DOC: documentation
+ENH: enhancement
+MAINT: maintenance commit (refactoring, typos, etc.)
+REV: revert an earlier commit
+STY: style fix (whitespace, PEP8)
+TST: addition or modification of tests
+REL: related to releasing numpy
+
+
+【版本2】
+
+参考：http://odoo-development.readthedocs.io/en/latest/git/commits.html
+
+Commit comment prefix
+Based on: https://www.odoo.com/documentation/8.0/reference/guidelines.html
+
+Basic tags
+[DOC] for documentation. Don’t use any other tags when you improve, fix, refactor documentation
+[PORT] for porting (version tag is required)
+[BACKPORT] for back-porting (version tag is required)
+[IMP] for improvements
+[FIX] for bug fixes
+[REF] for refactoring
+[TEXT] for commits with text changes only: labels, hints, comments, etc., but not for updates in documentation (*.rst and *.html files)
+[NEW] for uploading new modules (version tag is required)
+[ADD] for adding new resources and features.
+[REM] for removing of resources (version tag is required)
+[DEMO] for adding / updating demostration data
+[CI] for updating .travis.yml, requirements.txt, */tests/*, etc. files
+[LINT] for fixing lint errors
+[i18n] for translations
+
+
+【其他】
+
+这些前缀是否合理，有待继续研究。
