@@ -29,10 +29,10 @@ while read old new ref; do
     mismatch=1
   fi
   
-  if test "$GL_USER@yaxon.com" != "$email"; then
+  if test "$GL_USER@163.com" != "$email"; then
     echo
     echo "ERROR: Invalid user email on object $new:"
-    echo "       Expecting \"$GL_USER@yaxon.com\", got \"$email\""
+    echo "       Expecting \"$GL_USER@163.com\", got \"$email\""
     mismatch=1
   fi
 done
@@ -41,8 +41,8 @@ if test $mismatch -eq 1; then
   echo
   echo "Please run the following commands and try again:"
   echo "> git config user.name \"$GL_USER\""
-  echo "> git config user.email \"$GL_USER@yaxon.com\""
-  echo "> git commit --amend --author=\"$GL_USER <$GL_USER@yaxon.com>\""
+  echo "> git config user.email \"$GL_USER@163.com\""
+  echo "> git commit --amend --author=\"$GL_USER <$GL_USER@163.com>\""
   echo
   exit 1;
 fi
